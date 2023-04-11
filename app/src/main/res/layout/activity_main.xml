@@ -14,7 +14,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/mainToolbar"
-            android:background="@color/green"/>
+            android:background="@color/green" />
     </LinearLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/activity_header"
+        app:menu="@menu/main_menu"
+        android:layout_gravity="start"
+        android:id="@+id/mainMenu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
