@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:background="@drawable/header_gradient_color"
-    android:padding="20dp" >
+    android:layout_height="130dp"
+    android:background="?attr/colorPrimary"
+    android:padding="20dp"
+    android:gravity="bottom">
     <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/thermometer"
-        app:shapeAppearance="@style/logoStyle" />
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/thermometer"/>
 
     <LinearLayout
         android:layout_width="match_parent"

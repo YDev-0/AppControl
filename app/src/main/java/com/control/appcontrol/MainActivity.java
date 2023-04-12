@@ -18,17 +18,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mainToolbar = findViewById(R.id.mainToolbar);
-        setSupportActionBar(mainToolbar);
-
         mainDrawer = findViewById(R.id.mainDrawer);
-
         mainMenu = findViewById(R.id.mainMenu);
 
+        setSupportActionBar(mainToolbar);
         toggle = new ActionBarDrawerToggle(this, mainDrawer, mainToolbar, R.string.open, R.string.close);
-
         mainDrawer.addDrawerListener(toggle);
-
         toggle.syncState();
     }
 }
