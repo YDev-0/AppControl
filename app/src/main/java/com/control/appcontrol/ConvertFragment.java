@@ -64,6 +64,7 @@ public class ConvertFragment extends Fragment implements AdapterView.OnItemSelec
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String currentDegree = currentDegreeSpinner.getSelectedItem().toString();
         String desiredDegree = selectDegreeSpinner.getSelectedItem().toString();
+        desiredValue.setText("0");
         convertButton.setEnabled(!currentDegree.equals(desiredDegree));
     }
 
