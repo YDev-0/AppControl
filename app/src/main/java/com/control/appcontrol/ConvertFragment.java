@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,13 +51,37 @@ public class ConvertFragment extends Fragment implements AdapterView.OnItemSelec
         currentDegreeSpinner.setOnItemSelectedListener(this);
         selectDegreeSpinner.setOnItemSelectedListener(this);
 
+        currentValue.addTextChangedListener(new android.text.TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String text = currentValue.getText().toString();
+
+                if(text.length() > 0) {
+                    try {
+                        double value = Double.parseDouble(text);
+                    } catch (Exception e) {
+                        currentValue.setText(text.substring(0, text.length() - 1));
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         convertButton.setOnClickListener(v -> {
             String currentDegree = currentDegreeSpinner.getSelectedItem().toString();
             String desiredDegree = selectDegreeSpinner.getSelectedItem().toString();
             convert(currentDegree, desiredDegree);
         });
 
-        // Inflate the layout for this fragment
         return view;
     }
 
