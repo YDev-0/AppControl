@@ -68,6 +68,8 @@ public class ConvertFragment extends Fragment implements AdapterView.OnItemSelec
                         currentValue.setText(text.substring(0, text.length() - 1));
                     }
                 }
+
+                checkInputsValidation();
             }
 
             @Override
@@ -87,10 +89,7 @@ public class ConvertFragment extends Fragment implements AdapterView.OnItemSelec
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String currentDegree = currentDegreeSpinner.getSelectedItem().toString();
-        String desiredDegree = selectDegreeSpinner.getSelectedItem().toString();
-        desiredValue.setText("0");
-        convertButton.setEnabled(!currentDegree.equals(desiredDegree));
+        checkInputsValidation();
     }
 
     @Override
@@ -117,5 +116,12 @@ public class ConvertFragment extends Fragment implements AdapterView.OnItemSelec
         }
 
         desiredValue.setText("" + value);
+    }
+
+    private void checkInputsValidation() {
+        String currentDegree = currentDegreeSpinner.getSelectedItem().toString();
+        String desiredDegree = selectDegreeSpinner.getSelectedItem().toString();
+        desiredValue.setText("0");
+        convertButton.setEnabled(!currentDegree.equals(desiredDegree) && currentValue.getText().length() > 0);
     }
 }
