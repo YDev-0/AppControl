@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         mainDrawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainFrameLayout, new HomeFragment()).commit();
+
         mainMenu.setNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.home:
